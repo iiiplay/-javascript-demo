@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1>JavaScript</h1>
+
+
+
+
+    <script>
+        let a = 10;
+        let b = 20.5;
+        let d = true;
+
+        let c = a + b + d;
+        // 輸出
+        console.log(a, b, c);
+        // typeof 型態
+        console.log(typeof a, typeof b, typeof c, typeof d);
+
+
+        console.log(a + b);
+        console.log(a - b);
+        console.log(a / b);
+        //console.log(a // b);
+        console.log(a * b);
+        console.log(a % b);
+        console.log(a ** b);
+
+        //不可變動，常數
+        const PI = 3.14;
+        //輸入視窗prompt
+        let r = prompt("請輸入半徑:");
+        let area = r ** 2 * PI;
+
+        //警告視窗alert
+        if (isNaN(area)) {
+            console.log("輸入半徑不正確!");
+            alert("輸入半徑不正確!");
+        }
+
+        //輸出方式
+        console.log("半徑:", r, "圓面積:", area);
+
+        //反引號
+        console.log(`半徑:${r}公分 圓面積:${area}平方公分`);
+        alert(`半徑:${r}公分 圓面積:${area}平方公分`);
+
+        let i = 0;
+        let bmiRecord = [10, 20, 30];
+        //取最後值的寫法
+        console.log(bmiRecord[bmiRecord.length - 1]);
+
+        // break + continue
+        while (true) {
+            //BMI計算範例
+            let height = prompt(`第${i + 1}次輸入，請輸入身高(CM)(q:離開)`);
+            //toLowerCase() 轉小寫
+            if (height.toLowerCase() == "q") break;
+
+            let weight = prompt("請輸入體重(KG):");
+            let bmi = getBmi(height, weight);
+            //toFixed(n) 約束小數點
+            console.log(`身高:${height}公分 體重:${weight}公斤 BMI:${bmi}`);
+            alert(`身高:${height}公分 體重:${weight}公斤 BMI:${bmi}`);
+            i++;
+            bmiRecord.push(Number(bmi));
+        }
+
+        let total = 0;
+        //輸出
+        for (let i = 0; i < bmiRecord.length; i++) {
+            console.log(`${i} => ${bmiRecord[i]}`);
+            total += bmiRecord[i];
+        }
+
+        // 輸出平均BMI
+        console.log(`平均BMI為:${(total / bmiRecord.length).toFixed(2)}`);
+
+
+
+        //也能夠參數預設
+        function getBmi(height, weight, point = 2) {
+            let bmi = weight / (height / 100) ** 2;
+
+            if (isNaN(bmi)) return "輸入錯誤！";
+            return bmi.toFixed(point);
+        }
+
+
+    </script>
+
+</body>
+
+</html>
