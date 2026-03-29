@@ -55,9 +55,12 @@
         alert(`半徑:${r}公分 圓面積:${area}平方公分`);
 
         let i = 0;
-        let bmiRecord = [10, 20, 30];
+        let bmiRecord = [];
+
+
+
         //取最後值的寫法
-        console.log(bmiRecord[bmiRecord.length - 1]);
+        //console.log(bmiRecord[bmiRecord.length - 1]);
 
         // break + continue
         while (true) {
@@ -72,14 +75,20 @@
             console.log(`身高:${height}公分 體重:${weight}公斤 BMI:${bmi}`);
             alert(`身高:${height}公分 體重:${weight}公斤 BMI:${bmi}`);
             i++;
-            bmiRecord.push(Number(bmi));
+            bmiRecord.push({
+                "height": height,
+                "weight": weight,
+                "bmi": Number(bmi)
+            });
         }
 
         let total = 0;
         //輸出
         for (let i = 0; i < bmiRecord.length; i++) {
             console.log(`${i} => ${bmiRecord[i]}`);
-            total += bmiRecord[i];
+            console.log(bmiRecord[i]);
+
+            total += bmiRecord[i].bmi;
         }
 
         // 輸出平均BMI
